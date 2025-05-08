@@ -12,6 +12,7 @@ Nowoczesna strona portfolio dla web developera, zbudowana z wykorzystaniem vanil
 - Timeline projektu
 - Case studies z interaktywnym sliderem
 - Optymalizacja wydajności (Lighthouse Score 90+)
+- Strony prawne: Polityka prywatności i Regulamin
 
 ## Wymagania
 
@@ -44,6 +45,11 @@ npx serve
 ```
 portfolio/
 ├── index.html
+├── about.html
+├── contact.html
+├── services.html
+├── privacy-policy.html
+├── terms.html
 ├── css/
 │   ├── style.css
 │   ├── animations.css
@@ -52,9 +58,7 @@ portfolio/
 │   ├── main.js
 │   ├── animations.js
 │   └── dark-mode.js
-├── assets/
-│   ├── images/
-│   └── icons/
+├── images/
 └── README.md
 ```
 
@@ -62,8 +66,14 @@ portfolio/
 
 1. Zmień zawartość w `index.html` na własną
 2. Dostosuj kolory w pliku `css/style.css` (zmienne CSS)
-3. Dodaj własne obrazy do katalogu `assets/images/`
+3. Dodaj własne obrazy do katalogu `images/`
 4. Zmodyfikuj animacje w `css/animations.css`
+
+## Dokumenty prawne
+
+W stopce każdej podstrony znajdują się linki do:
+- [Polityka prywatności](privacy-policy.html)
+- [Regulamin](terms.html)
 
 ## Optymalizacja
 
@@ -79,13 +89,13 @@ MIT
 
 ## Autor
 
-Twoje Imię i Nazwisko
+Filip Szykulski
 
 ## Kontakt
 
-- Email: twoj@email.com
-- LinkedIn: linkedin.com/in/twoj-profil
-- Portfolio: twoje-portfolio.com 
+- Email: szykulskifilip@icloud.com
+- LinkedIn: linkedin.com/in/example
+- Portfolio: https://szyfik.github.io/FrontLab/
 
 git add .
 git commit -m "Opis zmian"
