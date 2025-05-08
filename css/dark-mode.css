@@ -1,0 +1,130 @@
+[data-theme="dark"] {
+    --text-color: #ffffff;
+    --background-color: #1a1a1a;
+    --primary-color: #4CC9F0;
+    --secondary-color: #4361EE;
+    --accent-color: #f72585;
+    
+    /* Ciemniejsze cienie */
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .header {
+    background-color: rgba(26, 26, 26, 0.95);
+    backdrop-filter: blur(10px);
+}
+
+[data-theme="dark"] .package-card {
+    background-color: #2a2a2a;
+}
+
+[data-theme="dark"] .footer {
+    background-color: #2a2a2a;
+}
+
+[data-theme="dark"] .form-group input,
+[data-theme="dark"] .form-group select,
+[data-theme="dark"] .form-group textarea {
+    background-color: #2a2a2a;
+    border-color: #404040;
+    color: var(--text-color);
+}
+
+[data-theme="dark"] .btn-secondary {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+/* Animacja przejścia między trybami */
+body {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Style dla przełącznika motywu */
+.theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: var(--spacing-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    transition: background-color 0.3s ease;
+}
+
+.theme-toggle:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.theme-toggle svg {
+    width: 24px;
+    height: 24px;
+    fill: var(--text-color);
+    transition: fill 0.3s ease, transform 0.3s ease;
+}
+
+.theme-toggle:hover svg {
+    fill: var(--primary-color);
+    transform: rotate(15deg);
+}
+
+/* Ukrywanie odpowiednich ikon w zależności od trybu */
+[data-theme="dark"] .sun-icon {
+    display: block;
+}
+
+[data-theme="dark"] .moon-icon {
+    display: none;
+}
+
+[data-theme="light"] .sun-icon {
+    display: none;
+}
+
+[data-theme="light"] .moon-icon {
+    display: block;
+}
+
+/* Dodatkowe style dla trybu ciemnego */
+[data-theme="dark"] .hero-background {
+    background: linear-gradient(45deg, rgba(67, 97, 238, 0.1), rgba(76, 201, 240, 0.1));
+}
+
+[data-theme="dark"] .stat-card {
+    background-color: #2a2a2a;
+}
+
+[data-theme="dark"] .before-after-slider::before {
+    background: var(--primary-color);
+    opacity: 0.2;
+}
+
+[data-theme="dark"] .checkmark {
+    background-color: #404040;
+}
+
+[data-theme="dark"] .checkbox-container:hover input ~ .checkmark {
+    background-color: #505050;
+}
+
+[data-theme="dark"] .nav-links a {
+    color: var(--text-color);
+}
+
+[data-theme="dark"] .nav-links a:hover {
+    color: var(--primary-color);
+}
+
+[data-theme="dark"] .hamburger span {
+    background-color: var(--text-color);
+}
+
+[data-theme="dark"] .project-timeline::before {
+    background: var(--primary-color);
+    opacity: 0.5;
+} 

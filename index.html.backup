@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Web Dev | Portfolio</title>
+    <meta name="description" content="Tworzę performantowe strony dla startupów tech">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/dark-mode.css">
+    <script src="js/main.js" defer></script>
+    <script src="js/animations.js" defer></script>
+    <script src="js/dark-mode.js" defer></script>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">Logo</div>
+            <button class="hamburger" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="#hero">Start</a></li>
+                <li><a href="#why-me">Dlaczego ja</a></li>
+                <li><a href="#case-studies">Case Studies</a></li>
+                <li><a href="#services">Usługi</a></li>
+                <li><a href="#contact">Kontakt</a></li>
+            </ul>
+            <button class="theme-toggle" aria-label="Przełącz motyw">
+                <svg class="sun-icon" viewBox="0 0 24 24">
+                    <path d="M12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.65 0-3 1.35-3 3s1.35 3 3 3 3-1.35 3-3-1.35-3-3-3zm0-2V4c0-.55-.45-1-1-1s-1 .45-1 1v3c0 .55.45 1 1 1s1-.45 1-1zm0 14v-3c0-.55-.45-1-1-1s-1 .45-1 1v3c0 .55.45 1 1 1s1-.45 1-1zM4.93 6.35L3.51 4.93c-.39-.39-1.02-.39-1.41 0-.39.39-.39 1.02 0 1.41l1.42 1.42c.39.39 1.02.39 1.41 0 .39-.39.39-1.02 0-1.41zm14.14 14.14l-1.42-1.42c-.39-.39-1.02-.39-1.41 0-.39.39-.39 1.02 0 1.41l1.42 1.42c.39.39 1.02.39 1.41 0 .39-.39.39-1.02 0-1.41zM4 13c-.55 0-1-.45-1-1s.45-1 1-1h3c.55 0 1 .45 1 1s-.45 1-1 1H4zm14 0h-3c-.55 0-1-.45-1-1s.45-1 1-1h3c.55 0 1 .45 1 1s-.45 1-1 1zM3.51 19.07l1.42-1.42c.39-.39.39-1.02 0-1.41-.39-.39-1.02-.39-1.41 0l-1.42 1.42c-.39.39-.39 1.02 0 1.41.39.39 1.02.39 1.41 0z"/>
+                </svg>
+                <svg class="moon-icon" viewBox="0 0 24 24">
+                    <path d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9c0-.46-.04-.92-.1-1.36-.98 1.37-2.58 2.26-4.4 2.26-2.98 0-5.4-2.42-5.4-5.4 0-1.81.89-3.42 2.26-4.4-.44-.06-.9-.1-1.36-.1z"/>
+                </svg>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero" class="hero">
+            <div class="hero-content">
+                <h1 class="animated-text">Zbudujmy przyszłość Twojego startupu – od prototypu do MVP w 14 dni</h1>
+                <div class="cta-buttons">
+                    <a href="#contact" class="btn btn-primary">Rozpocznij projekt</a>
+                    <a href="#case-studies" class="btn btn-secondary">Zobacz case studies</a>
+                </div>
+            </div>
+            <div class="hero-background"></div>
+        </section>
+
+        <section id="why-me" class="why-me">
+            <h2>Dlaczego ja?</h2>
+            <div class="why-me-container">
+                <ul class="why-me-list">
+                    <li>
+                        <i class="fas fa-rocket"></i>
+                        <p>10+ lat doświadczenia w tworzeniu nowoczesnych stron internetowych</p>
+                    </li>
+                    <li>
+                        <i class="fas fa-code"></i>
+                        <p>Specjalizacja w React, Next.js i nowoczesnych frameworkach</p>
+                    </li>
+                    <li>
+                        <i class="fas fa-mobile-alt"></i>
+                        <p>Pełna responsywność i optymalizacja pod urządzenia mobilne</p>
+                    </li>
+                </ul>
+                <ul class="why-me-list">
+                    <li>
+                        <i class="fas fa-chart-line"></i>
+                        <p>Skuteczne strategie SEO i optymalizacja konwersji</p>
+                    </li>
+                    <li>
+                        <i class="fas fa-clock"></i>
+                        <p>Szybkie terminy realizacji i terminowość</p>
+                    </li>
+                    <li>
+                        <i class="fas fa-comments"></i>
+                        <p>Stała komunikacja i wsparcie techniczne</p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="case-studies" class="case-studies">
+            <h2>Case Studies</h2>
+            <div class="case-study-funnel">
+                <div class="problem-section">
+                    <h3>Problem</h3>
+                    <select class="startup-challenges">
+                        <option value="">Wybierz wyzwanie...</option>
+                        <option value="conversion">Niska konwersja na stronie głównej</option>
+                        <option value="mobile">Słaba wydajność na urządzeniach mobilnych</option>
+                        <option value="seo">Brak widoczności w wyszukiwarkach</option>
+                        <option value="ux">Słabe doświadczenie użytkownika</option>
+                        <option value="speed">Wolne ładowanie strony</option>
+                    </select>
+                </div>
+                <div class="solution-section">
+                    <h3>Rozwiązanie</h3>
+                    <select class="solution-options">
+                        <option value="">Wybierz rozwiązanie...</option>
+                        <option value="redesign">Redesign UX/UI</option>
+                        <option value="optimization">Optymalizacja wydajności</option>
+                        <option value="seo">Strategia SEO</option>
+                        <option value="mobile">Optymalizacja mobilna</option>
+                        <option value="analytics">Implementacja analityki</option>
+                    </select>
+                </div>
+                <div class="results-section">
+                    <h3>Efekt</h3>
+                    <div class="before-after-slider">
+                        <!-- Slider -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="services">
+            <h2>Usługi</h2>
+            <div class="service-packages">
+                <div class="package-card">
+                    <h3>Landing Page</h3>
+                    <div class="price-calculator">
+                        <!-- Kalkulator -->
+                    </div>
+                </div>
+                <div class="package-card">
+                    <h3>Web App</h3>
+                    <div class="price-calculator">
+                        <!-- Kalkulator -->
+                    </div>
+                </div>
+                <div class="package-card">
+                    <h3>Full-stack Solution</h3>
+                    <div class="price-calculator">
+                        <!-- Kalkulator -->
+                    </div>
+                </div>
+            </div>
+            <div class="project-timeline">
+                <!-- Timeline -->
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <h2>Kontakt</h2>
+            <form class="contact-form" id="contactForm">
+                <div class="form-group">
+                    <label for="projectType">Typ projektu</label>
+                    <select id="projectType" required>
+                        <option value="">Wybierz...</option>
+                        <option value="landing">Landing Page</option>
+                        <option value="webapp">Web App</option>
+                        <option value="fullstack">Full-stack</option>
+                    </select>
+                </div>
+                <div class="dynamic-fields">
+                    <!-- Dynamiczne pola formularza -->
+                </div>
+                <div class="form-group">
+                    <label for="budget">Budżet (PLN)</label>
+                    <input type="number" id="budget" placeholder="AI sugeruje: 5000-15000 PLN">
+                </div>
+                <div class="form-group">
+                    <label for="message">Wiadomość</label>
+                    <textarea id="message" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="checkbox-container">
+                        <input type="checkbox" required>
+                        <span class="checkmark"></span>
+                        Akceptuję politykę prywatności i RODO
+                    </label>
+                </div>
+                <button type="submit" class="btn btn-primary">Wyślij</button>
+            </form>
+        </section>
+
+        <section id="testimonials" class="testimonials">
+            <h2>Referencje</h2>
+            <div class="video-testimonials">
+                <!-- Video testimonials -->
+            </div>
+            <div class="trust-badges">
+                <!-- Badge'y -->
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Kontakt</h3>
+                <p>Email: kontakt@example.com</p>
+                <p>LinkedIn: linkedin.com/in/example</p>
+            </div>
+            <div class="footer-section">
+                <h3>Social Media</h3>
+                <div class="social-links">
+                    <!-- Social media links -->
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Legal</h3>
+                <a href="/privacy-policy">Polityka prywatności</a>
+                <a href="/terms">Regulamin</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Wszelkie prawa zastrzeżone</p>
+        </div>
+    </footer>
+</body>
+</html> 

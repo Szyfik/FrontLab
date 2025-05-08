@@ -1,0 +1,686 @@
+:root {
+    /* Kolory podstawowe */
+    --primary-color: #4361EE;
+    --secondary-color: #4CC9F0;
+    --text-color: #333333;
+    --background-color: #ffffff;
+    --accent-color: #7209B7;
+    
+    /* Typografia */
+    --font-primary: 'Inter', sans-serif;
+    --font-secondary: 'Poppins', sans-serif;
+    
+    /* Breakpointy */
+    --breakpoint-tablet: 768px;
+    --breakpoint-desktop: 1024px;
+    
+    /* Spacing */
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 4rem;
+    
+    /* Border radius */
+    --border-radius-sm: 4px;
+    --border-radius-md: 8px;
+    --border-radius-lg: 16px;
+    
+    /* Shadows */
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Reset i podstawowe style */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-primary);
+    color: var(--text-color);
+    background-color: var(--background-color);
+    line-height: 1.6;
+}
+
+/* Header i nawigacja */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--background-color);
+    box-shadow: var(--shadow-sm);
+    z-index: 1000;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-md) var(--spacing-lg);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.nav-links {
+    display: flex;
+    gap: var(--spacing-lg);
+    list-style: none;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
+}
+
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* Hero section */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-xl) var(--spacing-lg) 0;
+    position: relative;
+    overflow: hidden;
+    margin-top: -200px;
+}
+
+.hero-content {
+    text-align: center;
+    max-width: 800px;
+    z-index: 1;
+    margin: 0 auto;
+    padding: 0 var(--spacing-lg);
+    margin-bottom: -100px;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    line-height: 1.6;
+    letter-spacing: 1px;
+    word-spacing: 2px;
+    text-align: center;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero h1 span {
+    display: inline-block;
+    margin: 0;
+}
+
+/* Dodatkowe style dla animacji tekstu */
+.hero h1 span {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.5s ease forwards;
+    white-space: nowrap;
+}
+
+/* Przyciski */
+.btn {
+    display: inline-block;
+    padding: var(--spacing-md) var(--spacing-lg);
+    border-radius: var(--border-radius-md);
+    text-decoration: none;
+    font-weight: 600;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    word-spacing: 0.4rem;
+    letter-spacing: 0.2px;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+/* Sekcje */
+section {
+    padding: var(--spacing-xl) var(--spacing-lg);
+}
+
+.case-studies {
+    margin-top: -90px;
+    margin-bottom: -100px;
+}
+
+.case-studies h2 {
+    margin-bottom: 30px;
+}
+
+section h2 {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+    font-size: 2.5rem;
+    letter-spacing: 0.3px;
+    word-spacing: 0.8rem;
+}
+
+.why-me {
+    margin-top: -150px;
+    padding-top: 0;
+}
+
+/* Karty usług */
+.service-packages {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-xl);
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.package-card {
+    background-color: var(--background-color);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow-md);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.package-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.package-card h3 {
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+    letter-spacing: 0.2px;
+    word-spacing: 0.6rem;
+}
+
+/* Formularz kontaktowy */
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: var(--spacing-lg);
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: var(--spacing-sm);
+    font-weight: 500;
+    text-align: left;
+    letter-spacing: 0.2px;
+    word-spacing: 0.4rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: var(--spacing-md);
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius-md);
+    font-family: var(--font-primary);
+}
+
+.contact-form select {
+    width: 80%;
+    background: var(--background-color);
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-md);
+    border: none;
+    font-size: 1rem;
+    color: var(--text-color);
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234361EE' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1.2rem;
+    transition: all 0.3s ease;
+    position: relative;
+    margin: 0 auto;
+    display: block;
+}
+
+.contact-form select:hover {
+    transform: translateX(10px);
+    box-shadow: var(--shadow-lg);
+}
+
+.contact-form select:focus {
+    outline: none;
+    box-shadow: var(--shadow-lg);
+}
+
+.contact-form select option {
+    padding: var(--spacing-sm);
+    font-size: 0.9rem;
+}
+
+.contact-form select::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 4px;
+    background: var(--primary-color);
+    transform: scaleY(0);
+    transition: transform 0.3s ease;
+}
+
+.contact-form select:hover::before {
+    transform: scaleY(1);
+}
+
+/* Footer */
+.footer {
+    background-color: #f8f9fa;
+    padding: var(--spacing-xl) var(--spacing-lg);
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-lg);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-section a {
+    text-decoration: none;
+    color: var(--text-color);
+    display: block;
+    margin-bottom: var(--spacing-sm);
+    transition: all 0.3s ease;
+    position: relative;
+    padding-left: var(--spacing-md);
+}
+
+.footer-section a::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 4px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.footer-section a:hover {
+    color: var(--primary-color);
+    transform: translateX(5px);
+}
+
+.footer-section a:hover::before {
+    background-color: var(--primary-color);
+    transform: translateY(-50%) scale(1.2);
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: var(--spacing-xl);
+    padding-top: var(--spacing-lg);
+    border-top: 1px solid #ddd;
+}
+
+.footer-section h3 {
+    text-align: center;
+    margin-bottom: var(--spacing-md);
+    letter-spacing: 0.2px;
+    word-spacing: 0.6rem;
+}
+
+.footer-section p,
+.footer-section a {
+    text-align: center;
+    display: block;
+    margin-bottom: var(--spacing-sm);
+    letter-spacing: 0.2px;
+    word-spacing: 0.4rem;
+}
+
+.footer-bottom p {
+    text-align: center;
+    letter-spacing: 0.2px;
+    word-spacing: 0.4rem;
+}
+
+/* Dodatkowe style dla lepszego wyśrodkowania */
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-xl);
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-xl);
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.case-study-funnel {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.case-study-funnel h3 {
+    margin-bottom: 20px;
+    margin-top: 15px;
+}
+
+.video-testimonials {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.trust-badges {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-xl);
+    flex-wrap: wrap;
+}
+
+.stat-card p {
+    text-align: center;
+    margin-top: var(--spacing-sm);
+    letter-spacing: 0.2px;
+    word-spacing: 0.4rem;
+}
+
+/* Media queries */
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--background-color);
+        padding: var(--spacing-md);
+        flex-direction: column;
+        align-items: center;
+        box-shadow: var(--shadow-md);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 1024px) {
+    .service-packages {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Dodatkowe style dla tekstu w sekcjach */
+.case-study-funnel h3 {
+    word-spacing: 0.6rem;
+    letter-spacing: 0.2px;
+}
+
+.contact-form label {
+    word-spacing: 0.4rem;
+}
+
+/* Lista w sekcji "Dlaczego ja" */
+.why-me-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-xl);
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-lg);
+}
+
+.why-me-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: var(--spacing-md);
+}
+
+.why-me-list li {
+    background: var(--background-color);
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-md);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.why-me-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 4px;
+    background: var(--primary-color);
+    transform: scaleY(0);
+    transition: transform 0.3s ease;
+}
+
+.why-me-list li:hover {
+    transform: translateX(10px);
+    box-shadow: var(--shadow-lg);
+}
+
+.why-me-list li:hover::before {
+    transform: scaleY(1);
+}
+
+.why-me-list li i {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    transition: transform 0.3s ease;
+}
+
+.why-me-list li:hover i {
+    transform: scale(1.2);
+}
+
+.why-me-list li p {
+    margin: 0;
+    font-size: 1.1rem;
+    color: var(--text-color);
+    transition: color 0.3s ease;
+}
+
+.why-me-list li:hover p {
+    color: var(--primary-color);
+}
+
+@media (max-width: 768px) {
+    .why-me-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Case Studies - Listy wyboru */
+.case-study-funnel {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.case-study-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: var(--spacing-md);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.case-study-list li {
+    background: var(--background-color);
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-md);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.case-study-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 4px;
+    background: var(--primary-color);
+    transform: scaleY(0);
+    transition: transform 0.3s ease;
+}
+
+.case-study-list li:hover {
+    transform: translateX(10px);
+    box-shadow: var(--shadow-lg);
+}
+
+.case-study-list li:hover::before {
+    transform: scaleY(1);
+}
+
+.case-study-list li i {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    transition: transform 0.3s ease;
+}
+
+.case-study-list li:hover i {
+    transform: scale(1.2);
+}
+
+.case-study-list li p {
+    margin: 0;
+    font-size: 1.1rem;
+    color: var(--text-color);
+    transition: color 0.3s ease;
+}
+
+.case-study-list li:hover p {
+    color: var(--primary-color);
+}
+
+/* Case Studies - Select style */
+.case-study-funnel select {
+    width: 80%;
+    background: var(--background-color);
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-md);
+    border: none;
+    font-size: 1rem;
+    color: var(--text-color);
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234361EE' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1.2rem;
+    transition: all 0.3s ease;
+    position: relative;
+    margin: 0 auto;
+    display: block;
+}
+
+.case-study-funnel select:hover {
+    transform: translateX(10px);
+    box-shadow: var(--shadow-lg);
+}
+
+.case-study-funnel select:focus {
+    outline: none;
+    box-shadow: var(--shadow-lg);
+}
+
+.case-study-funnel select option {
+    padding: var(--spacing-sm);
+    font-size: 0.9rem;
+}
+
+.case-study-funnel select::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 4px;
+    background: var(--primary-color);
+    transform: scaleY(0);
+    transition: transform 0.3s ease;
+}
+
+.case-study-funnel select:hover::before {
+    transform: scaleY(1);
+} 
