@@ -86,3 +86,7 @@ Twoje Imię i Nazwisko
 - Email: twoj@email.com
 - LinkedIn: linkedin.com/in/twoj-profil
 - Portfolio: twoje-portfolio.com 
+
+git add .
+git commit -m "Opis zmian"
+git push origin main
