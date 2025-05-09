@@ -77,6 +77,13 @@ body {
     color: var(--primary-color);
 }
 
+.logo-img {
+    height: 64px;
+    width: auto;
+    margin-right: 16px;
+    display: block;
+}
+
 .nav-links {
     display: flex;
     gap: var(--spacing-lg);
@@ -290,26 +297,32 @@ section h2 {
     text-align: center;
 }
 
-.form-group {
-    margin-bottom: var(--spacing-lg);
+.contact-form .form-group label {
+    text-align: center;
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
 }
 
-.form-group label {
-    display: block;
-    margin-bottom: var(--spacing-sm);
-    font-weight: 500;
-    text-align: left;
-    letter-spacing: 0.2px;
-    word-spacing: 0.4rem;
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.form-group {
+    margin-bottom: var(--spacing-lg);
 }
 
 .form-group input,
 .form-group select,
 .form-group textarea {
-    width: 100%;
-    max-width: 100%;
-    margin: 0 0 var(--spacing-lg) 0;
-    display: block;
+    font-family: 'Poppins', var(--font-primary), Arial, sans-serif;
+    font-size: 1.1rem;
+    padding: 18px 20px 18px 32px;
     border-radius: 16px;
     border: 1.5px solid #cfd8dc;
     box-shadow: 0 2px 8px rgba(67, 97, 238, 0.06);
@@ -318,6 +331,7 @@ section h2 {
 }
 
 .form-group textarea {
+    min-height: 140px;
     resize: vertical;
 }
 
@@ -545,6 +559,11 @@ section h2 {
 
     .hero h1 {
         font-size: 2.5rem;
+    }
+
+    .logo-img {
+        height: 44px;
+        margin-right: 8px;
     }
 }
 
@@ -1303,4 +1322,14 @@ body.contact-page .hero {
 .services-container .service-card:last-child.slide-in,
 .skills-grid .skill-card:last-child.slide-in {
     animation: slideInUp 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+h1 span, .gradient-text {
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    font-weight: bold;
+    text-shadow: 0 2px 16px rgba(67,97,238,0.45), 0 1px 0 var(--primary-color);
 } 

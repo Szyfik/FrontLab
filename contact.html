@@ -15,7 +15,7 @@
 <body class="contact-page">
     <header class="header">
         <nav class="nav">
-            <div class="logo">Logo</div>
+            <img src="images/frontlab-logo.png" alt="FrontLab Web Developer" class="logo-img">
             <button class="hamburger" aria-label="Menu">
                 <span></span>
                 <span></span>
@@ -23,7 +23,6 @@
             </button>
             <ul class="nav-links">
                 <li><a href="index.html">Start</a></li>
-                <li><a href="case-studies.html">Case Studies</a></li>
                 <li><a href="services.html">Usługi</a></li>
                 <li><a href="about.html">O mnie</a></li>
                 <li><a href="contact.html">Kontakt</a></li>
@@ -65,7 +64,7 @@
                     </div>
                 </div>
 
-                <form class="contact-form">
+                <form class="contact-form" id="contactForm">
                     <div class="form-group">
                         <label for="name">Imię i nazwisko</label>
                         <input type="text" id="name" name="name" required>
@@ -117,5 +116,28 @@
             <p>&copy; 2024 Wszelkie prawa zastrzeżone</p>
         </div>
     </footer>
+
+    <script>
+    document.getElementById('contactForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const data = {
+            name: this.name.value,
+            email: this.email.value,
+            subject: this.subject.value,
+            message: this.message.value
+        };
+        const res = await fetch('https://frontlab-backend.railway.app/api/contact', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        });
+        if (res.ok) {
+            alert('Dziękujemy za kontakt!');
+            this.reset();
+        } else {
+            alert('Wystąpił błąd. Spróbuj ponownie.');
+        }
+    });
+    </script>
 </body>
 </html> 

@@ -1,27 +1,42 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Animacja tekstu w hero section
-    const heroText = document.querySelector('.hero h1');
-    if (heroText) {
-        const text = heroText.textContent;
-        heroText.textContent = '';
-        
-        // Dzielimy tekst na wyrazy
+    // Kluczowe słowa do podkreślenia gradientem
+    const highlightWords = [
+        'przyszłość', 'startup', 'startupu', 'MVP', 'usługi', 'AI', 'wizytówka', 'kontakt', 'portfolio',
+        'regulamin', 'polityka', 'web', 'dev', 'nowoczesne', 'wsparcie', 'realizacje',
+        'projekt', 'zamów', 'premium', 'full-stack', 'utrzymanie', 'aktualizacje', 'mnie', '14', 'dni'
+    ];
+
+    document.querySelectorAll('h1').forEach(h1 => {
+        const text = h1.textContent;
+        h1.textContent = '';
         const words = text.split(' ');
-        
         words.forEach((word, i) => {
-            const span = document.createElement('span');
-            span.textContent = word;
-            span.style.animationDelay = `${i * 0.1}s`;
-            heroText.appendChild(span);
-            
-            // Dodajemy spację po każdym wyrazie (oprócz ostatniego)
-            if (i < words.length - 1) {
-                const space = document.createElement('span');
-                space.innerHTML = '&nbsp;';
-                heroText.appendChild(space);
+            // Sprawdzamy czy słowo jest do podkreślenia (ignorujemy wielkość liter)
+            const cleanWord = word.replace(/[^\wąćęłńóśźżĄĆĘŁŃÓŚŹŻ-]/gi, '').toLowerCase();
+            // Specjalny przypadek: '14 dni' razem
+            if (i < words.length - 1 && (cleanWord === '14' && words[i+1].replace(/[^\wąćęłńóśźżĄĆĘŁŃÓŚŹŻ-]/gi, '').toLowerCase() === 'dni')) {
+                const span = document.createElement('span');
+                span.textContent = word + ' ' + words[i+1];
+                span.className = 'gradient-text';
+                h1.appendChild(span);
+                if (i < words.length - 2) h1.appendChild(document.createTextNode(' '));
+                // Pomijamy następne słowo ('dni')
+                words[i+1] = '';
+                return;
+            }
+            if (highlightWords.includes(cleanWord)) {
+                const span = document.createElement('span');
+                span.textContent = word;
+                span.className = 'gradient-text';
+                h1.appendChild(span);
+            } else if (word !== '') {
+                h1.appendChild(document.createTextNode(word));
+            }
+            if (i < words.length - 1 && words[i+1] !== '') {
+                h1.appendChild(document.createTextNode(' '));
             }
         });
-    }
+    });
     
     // Hamburger menu
     const hamburger = document.querySelector('.hamburger');
