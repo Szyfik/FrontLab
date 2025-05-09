@@ -52,40 +52,47 @@ document.addEventListener('DOMContentLoaded', () => {
                 void card.offsetWidth; // reflow
                 card.classList.add('slide-in');
             });
-    // Animacja ostatnich kart w siatkach (features, services, skills)
-    const animatedCards = [
-        document.querySelector('.features-grid .feature-card:last-child'),
-        document.querySelector('.services-container .service-card:last-child'),
-        document.querySelector('.skills-grid .skill-card:last-child')
-    ].filter(Boolean);
+        }
 
-    animatedCards.forEach(card => {
-        if (card) console.log('Znaleziono kartę do animacji:', card);
-    });
+        // Animacja ostatnich kart w siatkach (features, services, skills)
+        const animatedCards = [
+            document.querySelector('.features-grid .feature-card:last-child'),
+            document.querySelector('.services-container .service-card:last-child'),
+            document.querySelector('.skills-grid .skill-card:last-child')
+        ].filter(Boolean);
 
-    if ('IntersectionObserver' in window) {
-        const observer = new IntersectionObserver((entries, obs) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    console.log('Dodaję klasę animate-in:', entry.target);
-                    entry.target.classList.add('animate-in');
-                    obs.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.1 });
+        animatedCards.forEach(card => {
+            if (card) console.log('Znaleziono kartę do animacji:', card);
+        });
 
-        animatedCards.forEach(card => observer.observe(card));
-        // Fallback: jeśli po 2s klasa nie została dodana, dodaj ją ręcznie
-        setTimeout(() => {
-            animatedCards.forEach(card => {
-                if (!card.classList.contains('animate-in')) {
-                    console.log('Fallback: dodaję animate-in po czasie:', card);
-                    card.classList.add('animate-in');
-                }
-            });
-        }, 2000);
-    } else {
-        // Fallback: dodaj animację od razu
-        animatedCards.forEach(card => card.classList.add('animate-in'));
+        if ('IntersectionObserver' in window) {
+            const observer = new IntersectionObserver((entries, obs) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        console.log('Dodaję klasę animate-in:', entry.target);
+                        entry.target.classList.add('animate-in');
+                        obs.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            animatedCards.forEach(card => observer.observe(card));
+            // Fallback: jeśli po 2s klasa nie została dodana, dodaj ją ręcznie
+            setTimeout(() => {
+                animatedCards.forEach(card => {
+                    if (!card.classList.contains('animate-in')) {
+                        console.log('Fallback: dodaję animate-in po czasie:', card);
+                        card.classList.add('animate-in');
+                    }
+                });
+            }, 2000);
+        } else {
+            // Fallback: dodaj animację od razu
+            animatedCards.forEach(card => card.classList.add('animate-in'));
+        }
     }
+
+    handleTileSlideIn();
+
+    window.addEventListener('resize', handleTileSlideIn);
 }); 

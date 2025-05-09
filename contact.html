@@ -126,7 +126,7 @@
             subject: this.subject.value,
             message: this.message.value
         };
-        const res = await fetch('https://frontlab-backend.up.railway.app', {
+        const res = await fetch('https://frontlab-backend.up.railway.app/api/contact', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(data)
