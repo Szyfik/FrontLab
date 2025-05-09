@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Twoja opinia</title>
+</head>
+<body>
+    <h1>Twoja opinia</h1>
+    <form id="feedbackForm">
+        <input type="text" name="name" placeholder="Twoje imię" required>
+        <textarea name="message" placeholder="Twoja opinia" required></textarea>
+        <button type="submit">Wyślij</button>
+    </form>
+
+    <script>
+        document.getElementById('feedbackForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const formData = new FormData(e.target);
+            const data = Object.fromEntries(formData);
+            
+            const response = await fetch('/api/feedback', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            });
+            
+            if (response.ok) {
+                alert('Dziękujemy za opinię!');
+            } else {
+                alert('Wystąpił błąd. Spróbuj ponownie.');
+            }
+        });
+    </script>
+</body>
+</html>

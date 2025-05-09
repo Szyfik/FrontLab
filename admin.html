@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel Administracyjny</title>
+</head>
+<body>
+    <h1>Panel Administracyjny</h1>
+    <table id="contactsTable">
+        <thead>
+            <tr>
+                <th>Imię</th>
+                <th>Email</th>
+                <th>Temat</th>
+                <th>Wiadomość</th>
+                <th>Data</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <script>
+        async function fetchContacts() {
+            const response = await fetch('/api/admin/contacts');
+            const contacts = await response.json();
+            const tbody = document.querySelector('#contactsTable tbody');
+            contacts.forEach(contact => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${contact.name}</td>
+                    <td>${contact.email}</td>
+                    <td>${contact.subject}</td>
+                    <td>${contact.message}</td>
+                    <td>${new Date(contact.createdAt).toLocaleString()}</td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+
+        fetchContacts();
+    </script>
+</body>
+</html>
