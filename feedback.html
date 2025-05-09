@@ -15,10 +15,12 @@
 
     <script>
         document.getElementById('feedbackForm').addEventListener('submit', async (e) => {
-            e.preventDefault();
+            e.preventDefault(); // Zapobiega domyślnej akcji formularza
             const formData = new FormData(e.target);
             const data = Object.fromEntries(formData);
             
+            console.log(data); // Dodaj tę linię, aby zobaczyć, co jest wysyłane
+    
             const response = await fetch('/api/feedback', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
