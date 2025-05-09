@@ -54,13 +54,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
-        // Animacja ostatnich kart w siatkach (features, services, skills)
-        const animatedCards = [
-            document.querySelector('.features-grid .feature-card:last-child'),
-            document.querySelector('.services-container .service-card:last-child'),
-            document.querySelector('.skills-grid .skill-card:last-child')
-        ].filter(Boolean);
-
         animatedCards.forEach(card => {
             if (card) console.log('Znaleziono kartę do animacji:', card);
         });
